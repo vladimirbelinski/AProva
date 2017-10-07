@@ -1,0 +1,96 @@
+<!-- Arquivo: main.html
+     Descrição:
+-->
+
+<head>
+	<title lang="en">AProva</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+	<link rel="shortcut icon" type="image/x-icon" href="images/logo_icon.png" />
+	<!-- CSS: Ícones-->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<template name="common_layout">
+	{{> yield "header"}}
+	{{> yield "main"}}
+	{{> yield "footer"}}
+</template>
+
+<!-- Template comum de cabeçalho -->
+<template name="header">
+	<header>
+		<nav class="white hiddenprint" id="menu" role="navigation" aria-label="Menu principal">
+			<div class="nav-wrapper container">
+				<a id="logo-container" href="/index" class="brand-logo">
+					<picture class="hiddenprint">
+						<source media="(min-width: 601px)" srcset="images/nav/logoB.png">
+						<source media="(min-width: 200px)" srcset="images/nav/logoBSmall.jpg">
+						<img src="images/nav/logoB.jpg" alt="Logo da APprova" style="width:auto">
+					</picture>
+				</a>
+				<a href="#" data-activates="nav-mobile" class="button-collapse" id="menu_sidenav_button"><i class="material-icons hiddenprint">menu</i></a>
+				<!-- Itens do menu normal -->
+				<ul class="right hide-on-med-and-down">
+					<li><a accesskey="1" href="#main" id="linkContent" class="sr-only">Ir para o conteúdo<span>1</span></a></li>
+					<li><a accesskey="2" href="#footer" id="linkFooter" class="sr-only">Ir para o rodapé<span>2</span></a></li>
+					<li><a href="/index"><span lang="en">Home</span></a></li>
+					<li><a href="/index">Entrar</a></li>
+				</ul>
+				<!-- Itens do menu lateral -->
+				<ul class="side-nav" id="nav-mobile" aria-expanded="true">
+					<li><div class="userView">
+							<div class="background">
+								<img src="images/nav/logoBSmall.jpg" alt="Logo da AProva">
+							</div>
+						</div>
+					</li>
+					<li><a accesskey="1" href="#main" id="linkContent" class="sr-only">Ir para o conteúdo<span>1</span></a></li>
+					<li><a accesskey="2" href="#footer" id="linkFooter" class="sr-only">Ir para o rodapé<span>2</span></a></li>
+					<li><a href="/index" onclick="$('.button-collapse').sideNav('hide');"><span lang="en">Home</span></a></li>
+					<li><a href="/index" onclick="$('.button-collapse').sideNav('hide');">Entrar</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+</template>
+
+<!-- Template comum de rodapé -->
+<template name="footer">
+	<footer role="contentinfo" class="page-footer amber" id="footer">
+		<div class="container">
+			<div class="row">
+				<!-- Logo da empresa -->
+				<div class="col s4 m5 center hiddenprint">
+					<picture>
+						<source media="(min-width: 993px)" srcset="images/footer/logo.png">
+						<source media="(min-width: 200px)" srcset="images/footer/logoSmall.png">
+						<img src="images/footer/logo.jpg" alt="Logo da Aprova" style="width:auto">
+					</picture>
+				</div>
+				<!-- Contato da empresa -->
+				<div class="col s4 m3 offset-m1">
+					<h5 class="white-text">Contato</h5>
+					<p class="white-text">+55(49)3333-3333 contact@aprova.com</p>
+				</div>
+				<!-- Links para outras mídias da empresa -->
+				<div class="col s4 m3 hiddenprint">
+					<h5 class="white-text">Nos siga</h5>
+					<a href="https://github.com/vladimirbelinski/AProva">
+						<picture class="hiddenprint">
+							<source media="(min-width: 993px)" srcset="images/footer/github.png">
+							<source media="(min-width: 200px)" srcset="images/footer/githubSmall.png">
+							<img src="images/footer/github.png" alt="Logo do GitHub" style="width:auto">
+						</picture>
+					</a>
+				</div>
+			</div>
+		</div>
+		<!-- Div de direitos autorais-->
+		<div class="footer-copyright amber">
+			<div class="container">
+				<span lang="en">Copyright</span> © 2017 <span lang="en">APROVA</span>, TODOS OS DIREITOS RESERVADOS.
+			</div>
+		</div>
+	</footer>
+</template>

@@ -1,0 +1,78 @@
+<!-- Arquivo: index.html
+     Descrição:
+-->
+
+<!-- Template /index -->
+<template name="index">
+    <main role="main" id="main">
+		<section>
+			<!-- Aqui é feito uso do componente JS 'Parallax', que consiste em um efeito onde o conteúdo do fundo (neste caso, uma imagem) é movido a uma velocidade diferente do que o conteúdo do primeiro plano durante a rolagem -->
+			<div class="parallax-container valign-wrapper hiddenprint">
+				<div class="section no-pad-bot">
+					<!-- Conteúdo que ficará sobre a imagem -->
+					<div class="container">
+						<div class="row center">
+							<h5 class="card-panel col s12 amber">AProva, uma plataforma para compartilhamento de conhecimento!</h5>
+						</div>
+						<div class="row center">
+							<!-- Aqui é feito uso do componente 'Button' do Materialize, no modo raised. Nesse botão tembém é usado 'waves', uma biblioteca externa incluída no Materialize que permite criar o efeito de tinta do Material Design	-->
+							<a role="button" href="/index" id="contest-button" class="btn-large waves-effect waves-light amber">Acessar Conteúdos</a>
+						</div>
+					</div>
+				</div>
+				<!-- Imagem sob efeito do parallax. Para tamanhos de tela > a 600px é carregada uma imagem completa. Para telas de tamanho inferior é carregada uma imagem menor (cantos cortados). Isso faz com que em dispositivos móveis, por exemplo, seja carregada uma imagem mais leve -->
+				<picture class="parallax hiddenprint">
+					<source media="(min-width: 601px)" srcset="images/index/whiteDesk.jpg">
+					<source media="(min-width: 200px)" srcset="images/index/whiteDeskSmall.jpg">
+					<img src="images/index/whiteDesk.jpg" alt="Ambiente de estudos" style="width:auto">
+				</picture>
+			</div>
+		</section>
+
+        <div class="container">
+            <div class="section">
+                <div class="row">
+					<section>
+						<div class="col s12 m6">
+							<div class="icon-block">
+								<h2 class="center grey-text text-darken-4"><i class="material-icons hiddenprint" aria-hidden="true">group</i></h2>
+								<h5 class="center">Quem somos</h5>
+								<p class="light">Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.</p>
+							</div>
+						</div>
+					</section>
+                    <section>
+						<div class="col s12 m6">
+							<div class="icon-block">
+								<h2 class="center grey-text text-darken-4"><i class="material-icons hiddenprint" aria-hidden="true">redeem</i></h2>
+								<h5 class="center" lang="en">Nosso produto</h5>
+								<p class="light">Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam,.</p>
+								<p>Neque porro!</p>
+							</div>
+						</div>
+					</section>
+                </div>
+            </div>
+        </div>
+
+		<section>
+			<!-- Aqui é feito uso do componente JS 'Parallax', que consiste em um efeito onde o conteúdo do fundo (neste caso, uma imagem) é movido a uma velocidade diferente do que o conteúdo do primeiro plano durante a rolagem -->
+			<div class="parallax-container valign-wrapper hiddenprint">
+				<div class="section no-pad-bot">
+					<!-- Conteúdo que ficará sobre a imagem -->
+					<div class="container">
+						<div class="row center">
+							<h5 class="card-panel col s12 amber">AProva: reinventando a forma de estudar, revolucionando a forma de viver!</h5>
+						</div>
+					</div>
+				</div>
+				<!-- Imagem sob efeito do parallax. Para tamanhos de tela > a 600px é carregada uma imagem completa. Para telas de tamanho inferior é carregada uma imagem menor (cantos cortados). Isso faz com que em dispositivos móveis, por exemplo, seja carregada uma imagem mais leve -->
+				<picture class="parallax hiddenprint">
+					<source media="(min-width: 601px)" srcset="images/index/brownDesk.jpg">
+					<source media="(min-width: 200px)" srcset="images/index/brownDeskSmall.jpg">
+					<img src="images/index/brownDesk.jpg" alt="Ambiente de estudos" style="width:auto">
+				</picture>
+			</div>
+		</section>
+    </main>
+</template>

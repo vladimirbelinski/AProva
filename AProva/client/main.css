@@ -1,0 +1,139 @@
+/* Customização do menu de navegação */
+nav ul a,
+nav .brand-logo {
+    color: #444;
+	padding: 0 10px;
+}
+
+/* Customização do menu de navegação - para um item trocar de cor também quando for usado tab */
+nav ul a:focus {
+    background-color: rgba(0,0,0,0.1);
+}
+
+/* Customização do side-nav */
+.side-nav .userView {
+    position: relative;
+    padding: 32px 32px 0;
+    margin-bottom: 8px;
+    height: 50px;
+    margin-left: 40px;
+    margin-top: 20px;
+}
+
+/* Customização do botão de menu colapsado */
+.button-collapse {
+    color: #ffb300;
+}
+
+/* Customização dos parágrafos (tag <p> e <p> com classe notes) */
+p {
+    line-height: 2rem;
+}
+
+p.notes {
+	color: #9e9e9e;
+	font-size: 0.8rem;
+}
+
+/* Customização de bloco de texto com ícone ('index.html') */
+.icon-block {
+    padding: 0 15px;
+}
+
+/* Customização de ícones */
+.icon-block .material-icons {
+    font-size: inherit;
+}
+
+/* Customização do rodapé da página */
+footer.page-footer {
+    margin: 0;
+}
+
+/* Customização da tag <figure> */
+figure {
+    width: 100%;
+    margin: 0;
+    margin-top: 17px;
+}
+
+/* Customização da tag <figcaption> */
+figcaption {
+    text-align: center;
+	padding-bottom: 10px;
+}
+
+/* Customizações do parallax ('index.html') */
+picture.parallax {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.parallax-container {
+    min-height: 380px;
+    line-height: 0;
+    height: auto;
+    color: rgba(255,255,255,.9);
+}
+
+.parallax-container .section {
+    width: 100%;
+}
+
+@media only screen and (min-width : 200px) {
+    #index-banner .section {
+        top: 0;
+    }
+}
+
+@media only screen and (min-width : 600px) {
+    .parallax-container .section {
+        position: absolute;
+        top: 40%;
+    }
+    #index-banner .section {
+        top: 10%;
+    }
+}
+
+/* Classe para esconder o rodapé (usada nas páginas onde é feito uso do handlebars - estratégia para não aparecer o rodapé até que a div de conteúdo tenha sido preenchida) */
+.hiddenfooter{
+	display: none !important;
+}
+
+/* Customizações do modo de impressão */
+@media print {
+	/* Classe para não mostrar elementos na impressão */
+	.hiddenprint {
+		display: none !important;
+	}
+	/* Algumas modificações para diminuir o espaço dos elementos na impressão */
+	.card-content {
+		max-height: 120px;
+		padding: 0;
+	}
+	.card-action {
+		height: 50px;
+	}
+	* {
+		padding: 0;
+		margin: 0;
+		border: none;
+	}
+}
+
+/* Classes tomadas do Bootstrap */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
