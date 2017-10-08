@@ -1,0 +1,17 @@
+1º: Instalar Meteor;
+
+2º: Criar pasta (JÁ FOI CRIADA NESTE PROJETO):
+> meteor create AProva
+
+3º: Entrar na pasta e iniciar o Meteor:
+> cd AProva
+> meteor
+
+4º: Entrar na pasta através de outro terminal e adicionar pacotes:
+> meteor add materialize:materialize
+> meteor add accounts-ui accounts-password
+> meteor add session
+> meteor add iron:router
+
+* Lembrar de utilizar o comando 'meteor remove insecure' quando iniciar a trabalhar com as coleções
+
