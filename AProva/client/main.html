@@ -1,5 +1,5 @@
 <!-- Arquivo: main.html
-     Descrição:
+     Descrição: HTML comum às páginas.
 -->
 
 <head>
@@ -24,8 +24,7 @@
 			<div class="nav-wrapper container">
 				<a id="logo-container" href="/index" class="brand-logo">
 					<picture class="hiddenprint">
-						<source media="(min-width: 601px)" srcset="images/nav/logoB.png">
-						<source media="(min-width: 200px)" srcset="images/nav/logoBSmall.jpg">
+						<source srcset="images/nav/logoB.png">
 						<img src="images/nav/logoB.jpg" alt="Logo da APprova" style="width:auto">
 					</picture>
 				</a>
@@ -35,7 +34,7 @@
 					<li><a accesskey="1" href="#main" id="linkContent" class="sr-only">Ir para o conteúdo<span>1</span></a></li>
 					<li><a accesskey="2" href="#footer" id="linkFooter" class="sr-only">Ir para o rodapé<span>2</span></a></li>
 					<li><a href="/index"><span lang="en">Home</span></a></li>
-					<li><a href="/index">Entrar</a></li>
+					<li><a href="/content">Conteúdos</a></li>
 				</ul>
 				<!-- Itens do menu lateral -->
 				<ul class="side-nav" id="nav-mobile" aria-expanded="true">
@@ -48,7 +47,7 @@
 					<li><a accesskey="1" href="#main" id="linkContent" class="sr-only">Ir para o conteúdo<span>1</span></a></li>
 					<li><a accesskey="2" href="#footer" id="linkFooter" class="sr-only">Ir para o rodapé<span>2</span></a></li>
 					<li><a href="/index" onclick="$('.button-collapse').sideNav('hide');"><span lang="en">Home</span></a></li>
-					<li><a href="/index" onclick="$('.button-collapse').sideNav('hide');">Entrar</a></li>
+					<li><a href="/content" onclick="$('.button-collapse').sideNav('hide');">Conteúdos</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -61,26 +60,27 @@
 		<div class="container">
 			<div class="row">
 				<!-- Logo da empresa -->
-				<div class="col s4 m5 center hiddenprint">
+				<div class="col s6 m5 center hiddenprint">
 					<picture>
 						<source media="(min-width: 993px)" srcset="images/footer/logo.png">
 						<source media="(min-width: 200px)" srcset="images/footer/logoSmall.png">
-						<img src="images/footer/logo.jpg" alt="Logo da Aprova" style="width:auto">
+						<img src="images/footer/logoSmall.png" alt="Logo da Aprova" style="width:auto">
+						<figcaption>Reinventado a forma de estudar,<br>Revolucionando a forma de viver!</figcaption>
 					</picture>
 				</div>
 				<!-- Contato da empresa -->
-				<div class="col s4 m3 offset-m1">
+				<div class="col s6 m3 offset-m1 center">
 					<h5 class="white-text">Contato</h5>
-					<p class="white-text">+55(49)3333-3333 contact@aprova.com</p>
+					<p class="white-text" style="text-align:center;">contact@aprova.com</p>
 				</div>
 				<!-- Links para outras mídias da empresa -->
-				<div class="col s4 m3 hiddenprint">
+				<div class="col s6 m3 center hiddenprint">
 					<h5 class="white-text">Nos siga</h5>
 					<a href="https://github.com/vladimirbelinski/AProva">
 						<picture class="hiddenprint">
 							<source media="(min-width: 993px)" srcset="images/footer/github.png">
 							<source media="(min-width: 200px)" srcset="images/footer/githubSmall.png">
-							<img src="images/footer/github.png" alt="Logo do GitHub" style="width:auto">
+							<img src="images/footer/githubSmall.png" alt="Logo do GitHub" style="width:auto">
 						</picture>
 					</a>
 				</div>

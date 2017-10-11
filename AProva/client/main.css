@@ -25,9 +25,24 @@ nav ul a:focus {
     color: #ffb300;
 }
 
+/* Customização para logo não esconder conteúdo do topo */
+.top {
+	margin-top: 1.2cm;
+}
+
+.right {
+	text-align: right;
+}
+
+/* Customização dos links */
+a {
+	color: #ffb300;
+}
+
 /* Customização dos parágrafos (tag <p> e <p> com classe notes) */
 p {
     line-height: 2rem;
+	text-align: justify;
 }
 
 p.notes {

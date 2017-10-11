@@ -1,5 +1,5 @@
 /* Arquivo: main.js
-   Descrição:
+   Descrição:neste arquivo podem ser encontradas funções e inicializações JS/jQuery necessárias para o funcionamento do trabalho, definições de dados de templates e rotas, especificamente àquelas relacionadas à 'main.html'.
 */
 
 import {

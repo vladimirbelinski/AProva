@@ -1,0 +1,33 @@
+<!-- Arquivo: content.html
+     Descrição: HTML da página de conteúdos.
+-->
+
+<!-- Template /index -->
+<template name="content">
+    <main role="main" id="main">
+		<div class="container">
+			<div class="row">
+				<div class="container col s6 m6">
+					<p role="button" class="hiddenprint top">{{> loginButtons }}</p>
+				</div>
+				<div class="container col s6 m6">
+					<h5 class="top right">Bem vindo(a){{usuario}}!</h5>
+				</div>
+			</div>
+		</div>		
+		
+		<div class="parallax-container valign-wrapper hiddenprint">
+			<div class="section no-pad-bot">
+				<div class="container">
+					<div class="row center">
+						<h5 class="card-panel col s12 amber">Enquanto não temos conteúdo, fiquem com o Jimin.</h5>
+					</div>
+				</div>
+			</div>
+			<picture class="parallax hiddenprint">
+				<source srcset="images/content/serendipity.jpg">
+				<img src="images/content/serendipity.jpg" alt="Serendipity" style="width:auto">
+			</picture>
+		</div>
+    </main>
+</template>
