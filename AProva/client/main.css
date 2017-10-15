@@ -115,6 +115,33 @@ picture.parallax {
     }
 }
 
+/* Customização das imagens dos cards de conteúdo */
+.content_card{
+	max-height: 160px;
+	max-width: 100%;
+	overflow: hidden;
+}
+
+.content_image {
+		min-height: 160px;
+}
+
+.btn-floating {
+    margin-top: -20%;
+    margin-left: 90%;
+}
+
+/* Customização das imagens dos cards de visualização */
+.view_card{
+	max-height: 300px;
+	max-width: 100%;
+	overflow: hidden;
+}
+
+.view_image {
+		min-height: 300px;
+}
+
 /* Classe para esconder o rodapé (usada nas páginas onde é feito uso do handlebars - estratégia para não aparecer o rodapé até que a div de conteúdo tenha sido preenchida) */
 .hiddenfooter{
 	display: none !important;

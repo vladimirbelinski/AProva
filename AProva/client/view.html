@@ -1,0 +1,71 @@
+<!-- Arquivo: view.html
+     Descrição: HTML da página de visualizações.
+-->
+
+<!-- Template /view -->
+<template name="view">
+    <main role="main" id="main">
+		<div class="container">
+			<div class="row">
+				<div class="container col s6 m6">
+					<p role="button" class="hiddenprint top">{{> loginButtons }}</p>
+				</div>
+				<div class="container col s6 m6">
+					<h5 class="top right">Bem vindo(a){{usuario}}!</h5>
+				</div>
+			</div>
+			
+			<!-- Esta parte está estática, por enquanto serve apenas para visualização de layout -->
+			
+			<div class="row">
+				<div class="container col s12">
+					<h5>Você está visualizando o material: Prova de Física I</h5>
+					<a href="/content">Voltar para página de buscas</a>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="container col s12">
+					<div class="card">
+						<div class="card-image view_card">
+							<img class="materialboxed view_image"  data-caption="Prova de Física I" src="images/content/prova.jpg" alt="Prova de Física I">
+						</div>
+						<div class="card-content">
+						<h5>Prova de Física I</h5>
+							<p><strong>Autor: </strong>Jorginho</p>
+							<div class="chip">USP</div>
+							<div class="chip">Eng. Produção</div>
+							<div class="chip">Física I</div>
+							<div class="chip">Área</div>
+							<div class="chip">Prof. Luiz</div>
+							<div class="chip">2016.2</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="container col s12">
+					<h5>Adicionar resposta ou comentário:</h5>
+					<textarea id="froala-editor"></textarea>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="container col s12">
+					<h5>Comentários ou respostas para este material:</h5>
+					<div class="card">
+						<div class="card-content">
+						  <span class="card-title">Resposta da letra (a)</span>
+						  <p> Na letra (a) a área ocupada por cada letra é igual a: 0.2 * 0.2 = 0.04 cm^2.</p>
+						</div>
+						<div class="card-action">
+							<p><strong>Autor: </strong>Claudinho. <strong>Adicionado em: </strong>15/10/2017 às 14h00min.</p>
+						</div>
+					 </div>
+				</div>
+			</div>
+			
+		</div>
+    </main>
+</template>

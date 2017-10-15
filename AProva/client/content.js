@@ -37,9 +37,3 @@ Template.content.helpers({
 		}
 	},
 });
-
-// Inicializações dos componentes js
-Template.content.onRendered(function () {
-	// Inicialização do parallax (para o conteúdo do segundo plano se mover em velocidade diferente do conteúdo do primeiro plano)
-	$('.parallax').parallax();
-});

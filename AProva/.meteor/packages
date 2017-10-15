@@ -24,3 +24,4 @@ session
 iron:router
 accounts-ui
 accounts-password
+froala:editor-reactive
