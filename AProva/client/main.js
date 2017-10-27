@@ -21,3 +21,22 @@ Template.header.onRendered(function () {
 	$('.button-collapse').sideNav();
 	// $("#login-sign-in-link").replaceWith("<a class=\"login-link-text\" id=\"login-sign-in-link\">Entrar</a>");
 });
+
+Template.header.events({
+    'click .login-facebook': function(e) {
+        e.preventDefault();
+        Meteor.loginWithFacebook({requestPermissions: ['public_profile', 'email']}, function(err){
+            if (err) {
+                console.log('Handle errors here: ', err);
+            }
+        });
+    },
+    'click [data-action=fb-login]'(e, tmpl){
+        e.preventDefault();
+        Meteor.loginWithFacebook({requestPermissions: ['public_profile', 'email']});
+    },
+    'click [data-action=logout]'(e, tmpl){
+        e.preventDefault();
+        Meteor.logout();
+    }
+});

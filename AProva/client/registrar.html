@@ -1,0 +1,64 @@
+<template name="registrar">
+  <main role="main" id="main">
+    <div class="container">
+      <div class="row">
+	<div class="container col s6 m6">
+	  <p role="button" class="hiddenprint top">{{> loginButtons }}</p>
+	</div>
+	<div class="container col s6 m6">
+	  <h5 class="top right">Bem vindo(a){{usuario}}!</h5>
+	</div>
+      </div>
+      <div class="row">
+	<h5>Registrar novo conteúdo</h5>
+	<form class="col s12">
+	  <div class="row">
+            <div class="input-field col s12 l6">
+              <input placeholder="Instituição" id="inst" type="text" class="validate">
+              <label for="inst">Instituição</label>
+            </div>
+            <div class="input-field col s12 l6">
+              <input id="curso" type="text" class="validate">
+              <label for="curso">Curso</label>
+            </div>
+            <div class="input-field col s12 l6">
+              <input id="disciplina" type="text" class="validate">
+              <label for="disciplina">Disciplina</label>
+            </div>
+            <div class="input-field col s12 l6">
+              <input id="professor" type="text" class="validate">
+              <label for="professor">Professor</label>
+            </div>
+            <div class="input-field col s12 l6">
+              <input id="ano" type="number" class="validate">
+              <label for="ano">Ano</label>
+            </div>
+	    <div class="input-field col s12 l6">
+              <input id="semestre" type="number" class="validate">
+              <label for="semestre">Semestre</label>
+            </div>
+	  </div>
+	  <div class="row">
+	    <div class="container col s12">
+	      <textarea id="pergunta"></textarea>
+	    </div>
+	  </div>
+	  <div class="file-field input-field">
+	    <div class="btn">
+              <span>Arquivo</span>
+              <input type="file">
+	    </div>
+	    <div class="file-path-wrapper">
+              <input class="file-path validate" type="text" placeholder="Faça o upload de um arquivo">
+	    </div>
+	  </div>
+	</form>
+	<div class="col s6 offset-s5">
+	<button class="btn waves-effect waves-light amber" type="submit" name="action">Enviar
+	  <i class="material-icons right">send</i>
+	</button>
+	</div>
+      </div>
+    </div>
+  </main>
+</template>
