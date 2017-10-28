@@ -22,6 +22,12 @@ Template.header.onRendered(function () {
 	// $("#login-sign-in-link").replaceWith("<a class=\"login-link-text\" id=\"login-sign-in-link\">Entrar</a>");
 });
 
+Template.header.helpers({
+    isLoginServicesConfigured() {
+        return Accounts.loginServicesConfigured();
+    }
+});
+
 Template.header.events({
     'click .login-facebook': function(e) {
         e.preventDefault();

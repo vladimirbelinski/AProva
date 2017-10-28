@@ -4,75 +4,75 @@
 
 <!-- Template /index -->
 <template name="index">
- <main role="main" id="main">
+  <main role="main" id="main">
 	<section>
-	 <!-- Aqui é feito uso do componente JS 'Parallax', que consiste em um efeito onde o conteúdo do fundo (neste caso, uma imagem) é movido 	a uma velocidade diferente do que o conteúdo do primeiro plano durante a rolagem -->
-	 <div class="parallax-container valign-wrapper hiddenprint">
+	  <!-- Aqui é feito uso do componente JS 'Parallax', que consiste em um efeito onde o conteúdo do fundo (neste caso, uma imagem) é movido 	a uma velocidade diferente do que o conteúdo do primeiro plano durante a rolagem -->
+	  <div class="parallax-container valign-wrapper hiddenprint">
 		<div class="section no-pad-bot">
-		 <!-- Conteúdo que ficará sobre a imagem -->
-		 <div class="container">
+		  <!-- Conteúdo que ficará sobre a imagem -->
+		  <div class="container">
 			<div class="row center">
-			 <h5 class="card-panel col s12 amber">AProva, uma plataforma para compartilhamento de conhecimento!</h5>
+			  <h5 class="card-panel col s12 amber">AProva, uma plataforma para compartilhamento de conhecimento!</h5>
 			</div>
 			<div class="row center">
-			 <!-- Aqui é feito uso do componente 'Button' do Materialize, no modo raised. Nesse botão tembém é usado 'waves', uma biblioteca 	externa incluída no Materialize que permite criar o efeito de tinta do Material Design	-->
-			 <a role="button" href="/content" class="btn-large waves-effect waves-light amber">Acessar Materiais</a>
+			  <!-- Aqui é feito uso do componente 'Button' do Materialize, no modo raised. Nesse botão tembém é usado 'waves', uma biblioteca 	externa incluída no Materialize que permite criar o efeito de tinta do Material Design	-->
+			  <a role="button" href="/content" class="btn-large waves-effect waves-light amber">Acessar Materiais</a>
 			</div>
-		 </div>
+		  </div>
 		</div>
 		<!-- Imagem sob efeito do parallax. Para tamanhos de tela > a 600px é carregada uma imagem completa. Para telas de tamanho inferior é carregada uma imagem menor (cantos cortados). Isso faz com que em dispositivos móveis, por exemplo, seja carregada uma imagem mais leve -->
 		<picture class="parallax hiddenprint">
-		 <source media="(min-width: 601px)" srcset="images/index/whiteDesk.jpg">
-		 <source media="(min-width: 200px)" srcset="images/index/whiteDeskSmall.jpg">
-		 <img src="images/index/whiteDesk.jpg" alt="Ambiente de estudos" style="width:auto">
+		  <source media="(min-width: 601px)" srcset="images/index/whiteDesk.jpg">
+		    <source media="(min-width: 200px)" srcset="images/index/whiteDeskSmall.jpg">
+		      <img src="images/index/whiteDesk.jpg" alt="Ambiente de estudos" style="width:auto">
 		</picture>
-	 </div>
+	  </div>
 	</section>
-	
+
 	<div class="container">
-	 <div class="section">
+	  <div class="section">
 		<div class="row">
-		 <section>
+		  <section>
 			<div class="col s12 m6">
-			 <div class="icon-block">
+			  <div class="icon-block">
 				<h2 class="center grey-text text-darken-4"><i class="material-icons hiddenprint" aria-hidden="true">fingerprint</i></h2>
 				<h5 class="center">Quem somos</h5>
 				<p class="light">A AProva é uma empresa que acredita no potencial do conhecimento como meio para as pessoas realizarem seus sonhos e atingirem sucesso naquilo que realizam. Além disso, reconhecemos as dificuldades e frustrações enfrentadas por estudantes ao se prepararem para avaliações e buscamos auxiliá-los. A forma como os auxiliamos é através da otimização de seu tempo de estudo e do provimento de conteúdo importante e de fácil acesso. Acabamos desenvolvendo uma plataforma de compartilhamento de conhecimento, quer <a href="/content" onclick="$(window).scrollTop(0);">conhecê-la</a>?</p>
 			 </div>
 			</div>
-		 </section>
-		 <section>
+		  </section>
+		  <section>
 			<div class="col s12 m6">
-			 <div class="icon-block">
+			  <div class="icon-block">
 				<h2 class="center grey-text text-darken-4"><i class="material-icons hiddenprint" aria-hidden="true">important_devices</i></h2>
 				<h5 class="center" lang="en">Nosso produto</h5>
 				<p class="light">A equipe de especialistas da AProva desenvolveu uma plataforma de compartilhamento de conhecimento, onde estudantes e professores podem compartilhar questões de avaliações e suas respostas, bem como debatê-las. Nosso diferencial consiste na disponibilização de um meio fácil, prático e rápido de localização do material que mais lhe será útil, uma vez que os materiais são organizados por instituição, curso, disciplina, conteúdo, professor, ano e semestreo.</p>
 				<p>Que tal dar uma olhadinha no que temos a lhe oferecer? <a href="/content"  onclick="$(window).scrollTop(0);">Clique aqui!</a></p>
-			 </div>
+			  </div>
 			</div>
-		 </section>
+		  </section>
 		</div>
-	 </div>
+	  </div>
 	</div>
 	
-		<section>
-		 <!-- Aqui é feito uso do componente JS 'Parallax', que consiste em um efeito onde o conteúdo do fundo (neste caso, uma imagem) é 	movido a uma velocidade diferente do que o conteúdo do primeiro plano durante a rolagem -->
-		 <div class="parallax-container valign-wrapper hiddenprint">
-			<div class="section no-pad-bot">
-			 <!-- Conteúdo que ficará sobre a imagem -->
-			 <div class="container">
-				<div class="row center">
-				 <h5 class="card-panel col s12 amber">AProva: reinventando a forma de estudar, revolucionando a forma de viver!</h5>
-				</div>
-			 </div>
+	<section>
+	  <!-- Aqui é feito uso do componente JS 'Parallax', que consiste em um efeito onde o conteúdo do fundo (neste caso, uma imagem) é 	movido a uma velocidade diferente do que o conteúdo do primeiro plano durante a rolagem -->
+	  <div class="parallax-container valign-wrapper hiddenprint">
+		<div class="section no-pad-bot">
+		  <!-- Conteúdo que ficará sobre a imagem -->
+		  <div class="container">
+			<div class="row center">
+			  <h5 class="card-panel col s12 amber">AProva: reinventando a forma de estudar, revolucionando a forma de viver!</h5>
 			</div>
-			<!-- Imagem sob efeito do parallax. Para tamanhos de tela > a 600px é carregada uma imagem completa. Para telas de tamanho inferior 	é carregada uma imagem menor (cantos cortados). Isso faz com que em dispositivos móveis, por exemplo, seja carregada uma imagem ma	is leve -->
-			<picture class="parallax hiddenprint">
-			 <source media="(min-width: 601px)" srcset="images/index/brownDesk.jpg">
-			 <source media="(min-width: 200px)" srcset="images/index/brownDeskSmall.jpg">
-			 <img src="images/index/brownDesk.jpg" alt="Ambiente de estudos" style="width:auto">
-			</picture>
-				</div>
-		</section>
- </main>
+		  </div>
+		</div>
+		<!-- Imagem sob efeito do parallax. Para tamanhos de tela > a 600px é carregada uma imagem completa. Para telas de tamanho inferior 	é carregada uma imagem menor (cantos cortados). Isso faz com que em dispositivos móveis, por exemplo, seja carregada uma imagem ma	is leve -->
+		<picture class="parallax hiddenprint">
+		  <source media="(min-width: 601px)" srcset="images/index/brownDesk.jpg">
+			<source media="(min-width: 200px)" srcset="images/index/brownDeskSmall.jpg">
+			  <img src="images/index/brownDesk.jpg" alt="Ambiente de estudos" style="width:auto">
+		</picture>
+	  </div>
+	</section>
+  </main>
 </template>

@@ -22,58 +22,58 @@
   <header>
     <nav class="white hiddenprint" id="menu" role="navigation" aria-label="Menu principal">
       <div class="nav-wrapper container">
-	<a id="logo-container" href="/index" class="brand-logo">
-	  <picture class="hiddenprint">
-	    <source srcset="images/nav/logoB.png">
-	      <img src="images/nav/logoB.jpg" alt="Logo da APprova" style="width:auto">
-	  </picture>
-	</a>
-	<a href="#" data-activates="nav-mobile" class="button-collapse" id="menu_sidenav_button"><i class="material-icons hiddenprint">menu</i></a>
-	<!-- Itens do menu normal -->
-	<ul class="right hide-on-med-and-down">
-	  <li><a accesskey="1" href="#main" id="linkContent" class="sr-only">Ir para o conteúdo<span>1</span></a></li>
-	  <li><a accesskey="2" href="#footer" id="linkFooter" class="sr-only">Ir para o rodapé<span>2</span></a></li>
-	  <li><a href="/index"><span lang="en">Home</span></a></li>
-	  <li><a href="/content">Materiais</a></li>
-	  {{#if currentUser }}
+	    <a id="logo-container" href="/index" class="brand-logo">
+	      <picture class="hiddenprint">
+	        <source srcset="images/nav/logoB.png">
+	          <img src="images/nav/logoB.jpg" alt="Logo da APprova" style="width:auto">
+	      </picture>
+	    </a>
+	    <a href="#" data-activates="nav-mobile" class="button-collapse" id="menu_sidenav_button"><i class="material-icons hiddenprint">menu</i></a>
+	    <!-- Itens do menu normal -->
+	    <ul class="right hide-on-med-and-down">
+	      <li><a accesskey="1" href="#main" id="linkContent" class="sr-only">Ir para o conteúdo<span>1</span></a></li>
+	      <li><a accesskey="2" href="#footer" id="linkFooter" class="sr-only">Ir para o rodapé<span>2</span></a></li>
+	      <li><a href="/index"><span lang="en">Home</span></a></li>
+	      <li><a href="/content">Materiais</a></li>
+	      {{#if currentUser }}
+          <li><a href="" class=""
+                 data-action="logout">Sair</a></li>
+          {{else}}
+          {{#if loggingIn}}
+          <li> Entrando... </li>
+          {{else}}
+          {{#if isLoginServicesConfigured}}
+          <li><a href="" class="" data-action="fb-login">Entrar com Facebook</a></li>
+          {{/if}}
+          {{/if}}
+          {{/if}}
+	    </ul>
+	    <!-- Itens do menu lateral -->
+	    <ul class="side-nav" id="nav-mobile" aria-expanded="true">
+	      <li>
+	        <div class="userView">
+	          <div class="background">
+		        <img src="images/nav/logoBSmall.jpg" alt="Logo da AProva">
+	          </div>
+	        </div>
+	      </li>
+	      <li><a accesskey="1" href="#main" id="linkContent" class="sr-only">Ir para o conteúdo<span>1</span></a></li>
+	      <li><a accesskey="2" href="#footer" id="linkFooter" class="sr-only">Ir para o rodapé<span>2</span></a></li>
+	      <li><a href="/index" onclick="$('.button-collapse').sideNav('hide');"><span lang="en">Home</span></a></li>
+	      <li><a href="/content" onclick="$('.button-collapse').sideNav('hide');">Materiais</a></li>
+	      {{#if currentUser }}
           <li><a href="/profile" class="waves-effect">Perfil</a></li>
           <li><a href="" class="waves-effect" data-action="logout">Sair</a></li>
           {{else}}
-            {{#if loggingIn}}
+          {{#if loggingIn}}
           <li> Entrando... </li>
-            {{else}}
-              {{#if isLoginServicesConfigured}}
-          <li><a href="" class="waves-effect" data-action="fb-login">Entrar com Facebook</a></li>
-              {{/if}}
-            {{/if}}
-          {{/if}}
-	</ul>
-	<!-- Itens do menu lateral -->
-	<ul class="side-nav" id="nav-mobile" aria-expanded="true">
-	  <li>
-	    <div class="userView">
-	      <div class="background">
-		<img src="images/nav/logoBSmall.jpg" alt="Logo da AProva">
-	      </div>
-	    </div>
-	  </li>
-	  <li><a accesskey="1" href="#main" id="linkContent" class="sr-only">Ir para o conteúdo<span>1</span></a></li>
-	  <li><a accesskey="2" href="#footer" id="linkFooter" class="sr-only">Ir para o rodapé<span>2</span></a></li>
-	  <li><a href="/index" onclick="$('.button-collapse').sideNav('hide');"><span lang="en">Home</span></a></li>
-	  <li><a href="/content" onclick="$('.button-collapse').sideNav('hide');">Materiais</a></li>
-	  {{#if currentUser }}
-          <li><a href="/profile" class="waves-effect">Perfil</a></li>
-          <li><a href="" class="waves-effect" data-action="logout">Sair</a></li>
           {{else}}
-            {{#if loggingIn}}
-          <li> Entrando... </li>
-            {{else}}
-              {{#if isLoginServicesConfigured}}
+          {{#if isLoginServicesConfigured}}
           <li><a href="" class="waves-effect" data-action="fb-login">Entrar com Facebook</a></li>
-              {{/if}}
-            {{/if}}
           {{/if}}
-	</ul>
+          {{/if}}
+          {{/if}}
+	    </ul>
       </div>
     </nav>
   </header>
