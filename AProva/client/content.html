@@ -4,60 +4,98 @@
 
 <!-- Template /content -->
 <template name="content">
-  <main role="main" id="main">
-    <div class="container">
-      <div class="row">
-	<div class="container col s6 m6">
-	  <p role="button" class="hiddenprint top">{{> loginButtons }}</p>
-	</div>
-	<div class="container col s6 m6">
-	  <h5 class="top right">Bem vindo(a){{usuario}}!</h5>
-	</div>
-	
-	<div class="col s12 m12" style="">
-	  <a class="waves-effect waves-light btn amber" href="registrar">Registrar novo conteúdo</a>
-	</div>
-      </div>
-
-			
-      <!-- Esta parte está estática, por enquanto serve apenas para visualização de layout -->
-      <div class="row">
-	<div class="container col s12">
-	  <form>
-	    <div class="input-field">
-	      <input id="search" type="search" required>
-	      <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-	      <i class="material-icons">close</i>
-	    </div>
-	  </form>
-	</div>
-      </div>
-			
-      <div class="row">
-	<div class="container col s12">
-	  <div class="chip">USP<i class="close material-icons">close</i></div>
-	  <div class="chip">Eng. Produção<i class="close material-icons">close</i></div>
-	  <div class="chip">Física I<i class="close material-icons">close</i></div>
-	  <div class="chip">Área<i class="close material-icons">close</i></div>
-	  <div class="chip">Prof. Luiz<i class="close material-icons">close</i></div>
-	  <div class="chip">2016.2<i class="close material-icons">close</i></div>
-	</div>
-      </div>
-			
-      <div class="row">
-	<div class="container col s12 m6 l4">
-	  <div class="card">
-	    <div class="card-image content_card">
-	      <img src="images/content/prova.jpg">
-	    </div>
-	    <div class="card-content">
-	      <a class="btn-floating waves-effect waves-light amber" href="/view"><i class="material-icons">add</i></a>
-	      <span class="card-title">Prova de Física I</span>
-	      <p><strong>Autor: </strong>Jorginho</p>
-	    </div>
-	  </div>
-	</div>
-      </div>
-    </div>
-  </main>
-</template>
+	<main role="main" id="main">
+		<div class="container">
+			<div class="row">
+				<div class="container col s6 m6">
+					<p role="button" class="hiddenprint top">{{> loginButtons }}</p>
+				</div>
+				<div class="container col s6 m6">
+					<h5 class="top right">Bem vindo(a){{usuario}}!</h5>
+				</div>
+			</div>
+		 
+		 {{#if currentUser}}
+		 <div class="row ">
+			<div class="container col s12 center">
+			 <a role="button" href="/registrar" class="btn-large waves-effect waves-light amber">Registrar novo material</a>
+			</div>
+		 </div>
+		 {{/if}}
+													
+		 <div class="row">
+			<div class="container col s12">
+			 <h5>Busca de materiais:</h5>
+			 <form>
+				<div class="input-field col s12 l6">
+				 <input id="inst" type="text" class="validate">
+				 <label for="inst">Instituição</label>
+				</div>
+				<div class="input-field col s12 l6">
+				 <input id="curso" type="text" class="validate">
+				 <label for="curso">Curso</label>
+				</div>
+				<div class="input-field col s12 l6">
+				 <input id="disciplina" type="text" class="validate">
+				 <label for="disciplina">Disciplina</label>
+				</div>
+				<div class="input-field col s12 l6">
+				 <input id="conteudo" type="text" class="validate">
+				 <label for="conteudo">Conteúdo</label>
+				</div>
+				<div class="input-field col s12 l6">
+				 	<input id="professor" type="text" class="validate">
+				 <label for="professor">Professor</label>
+				</div>
+				<div class="input-field col s6 l3">
+				 <input id="ano" type="number" class="validate">
+				 <label for="ano">Ano</label>
+				</div>
+				<div class="input-field col s6 l3">
+				 <input id="semestre" type="number" class="validate">
+				 <label for="semestre">Semestre</label>
+				</div>
+			 </form>
+			 <div class="col s12">
+				<button class="btn-large waves-effect waves-light amber right" type="submit" name="action">Busca<i class="material-icons 	right">search</i>
+				</button>
+			 	</div>
+			</div>
+		 </div>
+													
+		 <div class="row">
+			<div class="container col s12">
+			 <h5>Resultados da busca para as tags:</h5>
+			</div>
+		 </div>
+													
+		 <div class="row">
+			<div class="container col s12">
+			 <div class="chip">USP<i class="close material-icons">close</i></div>
+			 <div class="chip">Eng. Produção<i class="close material-icons">close</i></div>
+			 <div class="chip">Física I<i class="close material-icons">close</i></div>
+			 <div class="chip">Área<i class="close material-icons">close</i></div>
+			 <div class="chip">Prof. Luiz<i class="close material-icons">close</i></div>
+			 <div class="chip">2016<i class="close material-icons">close</i></div>
+			 <div class="chip">2º semestre<i class="close material-icons">close</i></div>
+			</div>
+		 </div>
+													
+		 <div class="row">
+			<div class="container col s12 m6 l4">
+			 <div class="card">
+				<div class="card-image content_card">
+				 <img src="images/content/prova.jpg">
+				</div>
+				<div class="card-content">
+				 <a class="btn-floating waves-effect waves-light amber" href="/view" onclick="$(window).scrollTop(0);"><i class="material-icons">add</i></a>
+				 <span class="card-title">Prova de Física I</span>
+				 <p><strong>Autor: </strong>Jorginho</p>
+				</div>
+			 </div>
+			</div>
+		 </div>
+													
+	 </div>
+ </main>
+</template>	

@@ -46,5 +46,4 @@ Template.view.events({
 
 // Inicializações dos componentes js
 Template.view.onRendered(function () {
-	$('textarea#froala-editor').froalaEditor();
 });

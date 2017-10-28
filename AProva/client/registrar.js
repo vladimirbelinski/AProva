@@ -28,5 +28,6 @@ Router.route('/registrar', function () {
 
 // Inicializações dos componentes js
 Template.registrar.onRendered(function () {
-    $('textarea#pergunta').froalaEditor();
+	$('textarea#pergunta').froalaEditor({placeholderText: 'Insira aqui o material que deseja registrar'})
+    $('textarea#pergunta').froalaEditor();	
 });

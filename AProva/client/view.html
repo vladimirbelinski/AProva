@@ -4,13 +4,13 @@
 
 <!-- Template /view -->
 <template name="view">
-    <main role="main" id="main">
+	<main role="main" id="main">
 		<div class="container">
 			<div class="row">
 				<div class="container col s6 m6">
 					<p role="button" class="hiddenprint top">{{> loginButtons }}</p>
 				</div>
-				<div class="container col s6 m6">
+				<div	 class="container col s6 m6">
 					<h5 class="top right">Bem vindo(a){{usuario}}!</h5>
 				</div>
 			</div>
@@ -38,23 +38,30 @@
 							<div class="chip">Física I</div>
 							<div class="chip">Área</div>
 							<div class="chip">Prof. Luiz</div>
-							<div class="chip">2016.2</div>
+							<div class="chip">2016</div>
+							<div class="chip">2º semestre</div>
 						</div>
 					</div>
 				</div>
 			</div>
 			
-			<div class="row">
+			{{#if currentUser}}
+			<div class="row" id="xuh">
 			  <div class="container col s12">
+				<script>
+					$('textarea#resposta').froalaEditor({placeholderText: 'Insira aqui sua resposta ou comentário'})
+		$('textarea#resposta').froalaEditor();
+				  </script>
 			    <h5>Adicionar resposta ou comentário:</h5>
-			    <textarea id="froala-editor"></textarea>
+			    <textarea id="resposta"></textarea>
 			  </div>
-			  <div class="container col right" style="padding-top:2em;">
-			    <button class="btn waves-effect waves-light amber" type="submit" name="action">Enviar
+			  <div class="container col s12 right" style="padding-top:2em;">
+			    <button class="btn-large waves-effect waves-light amber" type="submit" name="action">Enviar
 			      <i class="material-icons right">send</i>
 			    </button>
 			  </div>
 			</div>
+			{{/if}}
 			
 			<div class="row">
 				<div class="container col s12">
