@@ -6,14 +6,15 @@
 <template name="content">
 	<main role="main" id="main">
 		<div class="container">
+			
 			<div class="row">
-				<div class="container col s6 m6">
-					<p role="button" class="hiddenprint top">{{> loginButtons }}</p>
-				</div>
-				<div class="container col s6 m6">
-					<h5 class="top right">Bem vindo(a){{usuario}}!</h5>
+				<div class="container col s12">
+					{{#if currentUser}}
+					<h5 class="top right" style='margin-top:2.5em'>Bem vindo(a){{usuario}}!</h5>
+					{{/if}}
 				</div>
 			</div>
+			
 		 
 		 {{#if currentUser}}
 		 <div class="row ">
@@ -25,7 +26,11 @@
 													
 		 <div class="row">
 			<div class="container col s12">
-			 <h5>Busca de materiais:</h5>
+				{{#if currentUser}}
+				<h5>Busca de materiais:</h5>
+				{{else}}
+				<h5 style='margin-top:2em'>Busca de materiais:</h5>
+				{{/if}}
 			 <form>
 				<div class="input-field col s12 l6">
 				 <input id="inst" type="text" class="validate">
@@ -57,7 +62,7 @@
 				</div>
 			 </form>
 			 <div class="col s12">
-				<button class="btn-large waves-effect waves-light amber right" type="submit" name="action">Busca<i class="material-icons 	right">search</i>
+				<button class="btn-large waves-effect waves-light amber right" type="submit" name="action">Buscar<i class="material-icons 	right">search</i>
 				</button>
 			 	</div>
 			</div>

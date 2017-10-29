@@ -12,7 +12,6 @@ import './main.html';
 import './registrar.html';
 
 // Definição das rotas para /registrar
-
 Router.route('/registrar', function () {
 	this.layout('common_layout');
 	this.render('header', {
@@ -24,6 +23,18 @@ Router.route('/registrar', function () {
 	this.render('footer', {
 		to: "footer"
 	});
+});
+
+Template.registrar.helpers({
+	usuario: function () {
+		if (Meteor.user()) {
+			if (Meteor.user().username) {
+				return ", " + Meteor.user().username;
+			} else if (Meteor.user().profile.name) {
+				return ", " + Meteor.user().profile.name;
+			}
+		}
+	},
 });
 
 // Inicializações dos componentes js

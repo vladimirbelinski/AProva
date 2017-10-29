@@ -10,10 +10,15 @@ import {
 } from 'meteor/reactive-var';
 import './main.html';
 
-// Configuração de accounts para aceitar username e email
-Accounts.ui.config({
-	passwordSignupFields: "USERNAME_AND_EMAIL"
-});
+// Redirecionamento para \index se usuário não está logado
+Router.onBeforeAction(function () {    
+    if  (!Meteor.userId() && !Meteor.loggingIn()) {
+        this.redirect('\index');
+        this.stop();
+    } else {
+        this.next();
+    }
+},{except: ['index','content', 'view'] });
 
 // Inicializações dos componentes js
 Template.header.onRendered(function () {
