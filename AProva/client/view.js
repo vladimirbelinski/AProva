@@ -42,6 +42,47 @@ Template.view.events({
 	'load .materialboxed': function (event) {
 		$('.materialboxed').materialbox();
 	},
+	// Criar função onChanged para froala
+	'submit #form_newAnswer': function (events) {		
+		function checkMaterial() {
+			var state = true;
+			if ($('#material').val() == '') {
+				$('#material_error').text("Preenchimento obrigatório");
+				state = false;
+			} else {
+				$('#material_error').text("");
+				state = true;
+			}
+			return state;
+		}
+		
+		var material= checkMaterial();
+
+		// É verdadeiro somente se nenhuma verificação foi falha
+		if (material) {
+			var material_value = $("#material").val();
+			Answers.insert({
+				// Add id do material
+				material: material_value,
+				created: new Date(),
+				createdBy: Meteor.user()._id
+			});
+			// Confirmação de envio
+			swal({
+				  title: "Comentário/resposta enviada com sucesso!",
+				  type: "success",
+				  confirmButtonColor: "#ffb300",
+				  confirmButtonText: "Fechar",
+				  closeOnConfirm: true
+				},
+				function(){
+				  // Limpar froala após envio
+			});
+			return false;
+		}  else {
+			return false;
+		}
+	},
 });
 
 // Inicializações dos componentes js

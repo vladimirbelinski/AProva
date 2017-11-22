@@ -90,20 +90,26 @@
 		 </div>
 													
 		 <div class="row">
-			 <div class="container col s12 m6 l4">
-				{{#each content}}
+			 {{#each content}}
+			 	<div class="container col s12 m6 l4">
           <div class="card white">
             <div class="card-content amber-text">
               <span class="card-title">{{title}}</span>
             </div>
             <div class="card-action">
              	<p><strong>Autor: </strong>{{getName createdBy}}</p>
-							<p><strong>Adicionado em: </strong>{{created}}</p>
+							<!--<p><strong>Adicionado em: </strong>{{created}}</p>-->
+							<p><strong>Instituição: </strong>{{inst}}</p>
+							<p><strong>Curso: </strong>{{course}}</p>
+							<p><strong>Disciplina: </strong>{{subject}}</p>
+							<p><strong>Conteúdo(s): </strong>{{topic}}</p>
+							<p><strong>Professor: </strong>{{professor}}</p>
+							<p><strong>Ano.(bi/se)mestre: </strong>{{year}}.{{semester}}</p>							
               <a href="/view" onclick="$(window).scrollTop(0);">Visualizar material</a>
             </div>
           </div>
-				{{/each}}
-			 </div>
+				</div>
+			 {{/each}} 
 			</div>
 		</div>
 	</main>
