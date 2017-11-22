@@ -36,4 +36,91 @@ Template.content.helpers({
 			}
 		}
 	},
+	content: Content.find({}, {
+		sort: {
+			created: -1
+		}
+	}),
+	getName: function (user_id) {
+		var user = Meteor.users.findOne({
+			_id: user_id
+		});
+		return user.username;
+	},	
+});
+
+// Eventos do template content
+Template.content.events({
+	'change #year': function (events) {
+		var pattYear = new RegExp("^[1-2]{1}[0-9]{3}$");
+
+		if (($('#year').val() != "") && !(pattYear.test($('#year').val()))) {
+			$('#year').addClass('invalid');
+			$('#year_error').text("Ano em formato inválido.");
+		} else {
+			$('#year').removeClass('invalid');
+			$('#year').addClass('valid');
+			$('#year_error').text("");
+		}
+	},
+	'change #semester': function (events) {
+		var pattSemester = new RegExp("^[1-4]{1}$");
+
+		if (($('#semester').val() != "") && !(pattSemester.test($('#semester').val()))) {
+			$('#semester').addClass('invalid');
+			$('#semester_error').text("(Bi/Se)mestre em formato inválido.");
+		} else {
+			$('#semester').removeClass('invalid');
+			$('#semester').addClass('valid');
+			$('#semester_error').text("");
+		}
+	},
+	'submit #form_searchContent': function (events) {		
+		function checkYear() {
+		var pattYear = new RegExp("^[1-2]{1}[0-9]{3}$");
+		var state = true;
+
+		if (($('#year').val() != "") && !(pattYear.test($('#year').val()))) {
+			$('#year').addClass('invalid');
+			$('#year_error').text("Ano em formato inválido.");
+			state = false;
+		} else {
+			$('#year').removeClass('invalid');
+			$('#year').addClass('valid');
+			$('#year_error').text("");
+			state = true;
+		}
+		return state;
+		}
+		
+		function checkSemester() {
+		var pattSemester = new RegExp("^[1-4]{1}$");
+		var state = true;
+
+		if (($('#semester').val() != "") && !(pattSemester.test($('#semester').val()))) {
+			$('#semester').addClass('invalid');
+			$('#semester_error').text("(Bi/Se)mestre em formato inválido.");
+			state = false;
+		} else {
+			$('#semester').removeClass('invalid');
+			$('#semester').addClass('valid');
+			$('#semester_error').text("");
+			state = true;
+		}
+		return state;
+		}
+
+		// É verdadeiro somente se nenhuma verificação foi falha
+		if (year && semester) {
+			// Scrollando a tela para a posição onde são apresentados os resultados da busca
+			$(window).scrollTop(500);
+		  // Limpando os campos após o envio
+			$("#inst, #course, #subject, #topic, #professor, #year, #semester").val("");
+			// Removendo a classe valid
+			$("#inst, #course, #subject, #topic, #professor, #year, #semester").removeClass("valid");
+			return false;
+		}  else {
+			return false;
+		}
+	},
 });

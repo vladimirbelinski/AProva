@@ -31,38 +31,41 @@
 				{{else}}
 				<h5 style='margin-top:2em'>Busca de materiais:</h5>
 				{{/if}}
-			 <form>
+			 <form role="form" id="form_searchContent" name="form_searchContent">
 				<div class="input-field col s12 l6">
-				 <input id="inst" type="text" class="validate">
+				 <input id="inst" name="inst" type="text" class="validate" autofocus>
 				 <label for="inst">Instituição</label>
 				</div>
 				<div class="input-field col s12 l6">
-				 <input id="curso" type="text" class="validate">
-				 <label for="curso">Curso</label>
+				 <input id="course" name="course" type="text" class="validate">
+				 <label for="course">Curso</label>
 				</div>
 				<div class="input-field col s12 l6">
-				 <input id="disciplina" type="text" class="validate">
-				 <label for="disciplina">Disciplina</label>
+				 <input id="subject" name="subject" type="text" class="validate">
+				 <label for="subject">Disciplina</label>
 				</div>
 				<div class="input-field col s12 l6">
-				 <input id="conteudo" type="text" class="validate">
-				 <label for="conteudo">Conteúdo</label>
+				 <input id="topic" name="topic" type="text" class="validate">
+				 <label for="topic">Conteúdo</label>
 				</div>
 				<div class="input-field col s12 l6">
-				 	<input id="professor" type="text" class="validate">
+				 	<input id="professor" name="professor" type="text" class="validate">
 				 <label for="professor">Professor</label>
 				</div>
 				<div class="input-field col s6 l3">
-				 <input id="ano" type="number" class="validate">
-				 <label for="ano">Ano</label>
+				 <input id="year" name="year" type="text">
+				 <label for="year">Ano</label>
+					<!-- Nessa div são inseridas mensagens de erro acerca do campo, se existirem -->
+					<div class="required_error" id="year_error"></div>
 				</div>
 				<div class="input-field col s6 l3">
-				 <input id="semestre" type="number" class="validate">
-				 <label for="semestre">Semestre</label>
+				 <input id="semester" name="semester" type="text">
+				 <label for="semester">(Bi/Se)mestre</label>
+					<div class="required_error" id="semester_error"></div>
 				</div>
 			 </form>
 			 <div class="col s12">
-				<button class="btn-large waves-effect waves-light amber right" type="submit" name="action">Buscar<i class="material-icons 	right">search</i>
+				<button class="btn-large waves-effect waves-light amber right" type="submit" form="form_searchContent">Buscar<i class="material-icons right">search</i>
 				</button>
 			 	</div>
 			</div>
@@ -76,31 +79,32 @@
 													
 		 <div class="row">
 			<div class="container col s12">
-			 <div class="chip">USP<i class="close material-icons">close</i></div>
-			 <div class="chip">Eng. Produção<i class="close material-icons">close</i></div>
-			 <div class="chip">Física I<i class="close material-icons">close</i></div>
-			 <div class="chip">Área<i class="close material-icons">close</i></div>
-			 <div class="chip">Prof. Luiz<i class="close material-icons">close</i></div>
-			 <div class="chip">2016<i class="close material-icons">close</i></div>
-			 <div class="chip">2º semestre<i class="close material-icons">close</i></div>
+			 <div class="chip">USP</div>
+			 <div class="chip">Eng. Produção</div>
+			 <div class="chip">Física I</div>
+			 <div class="chip">Área</div>
+			 <div class="chip">Prof. Luiz</div>
+			 <div class="chip">2016</div>
+			 <div class="chip">2º semestre</div>
 			</div>
 		 </div>
 													
 		 <div class="row">
-			<div class="container col s12 m6 l4">
-			 <div class="card">
-				<div class="card-image content_card">
-				 <img src="images/content/prova.jpg">
-				</div>
-				<div class="card-content">
-				 <a class="btn-floating waves-effect waves-light amber" href="/view" onclick="$(window).scrollTop(0);"><i class="material-icons">add</i></a>
-				 <span class="card-title">Prova de Física I</span>
-				 <p><strong>Autor: </strong>Jorginho</p>
-				</div>
+			 <div class="container col s12 m6 l4">
+				{{#each content}}
+          <div class="card white">
+            <div class="card-content amber-text">
+              <span class="card-title">{{title}}</span>
+            </div>
+            <div class="card-action">
+             	<p><strong>Autor: </strong>{{getName createdBy}}</p>
+							<p><strong>Adicionado em: </strong>{{created}}</p>
+              <a href="/view" onclick="$(window).scrollTop(0);">Visualizar material</a>
+            </div>
+          </div>
+				{{/each}}
 			 </div>
 			</div>
-		 </div>
-													
-	 </div>
- </main>
+		</div>
+	</main>
 </template>	

@@ -15,49 +15,65 @@
       </div>
       <div class="row">
 				<h5>Registro de novo material:</h5>
-				<form class="col s12">
+				<form role="form" id="form_newContent" name="form_newContent" class="col s12">
 					<div class="row">
 						<div class="input-field col s12 l6">
-							<input id="inst" type="text" class="validate">
-							<label for="inst">Instituição</label>
+							<input id="inst" name="inst" type="text" autofocus>
+							<label for="inst">Instituição (obrigatório)</label>
+							<!-- Nessa div são inseridas mensagens de erro acerca do campo, se existirem -->
+							<div class="required_error" id="inst_error"></div>
+						</div>						
+						<div class="input-field col s12 l6">
+							<input id="course" name="course" type="text" >
+							<label for="course">Curso (obrigatório)</label>
+							<div class="required_error" id="course_error"></div>
 						</div>
 						<div class="input-field col s12 l6">
-							<input id="curso" type="text" class="validate">
-							<label for="curso">Curso</label>
+							<input id="subject" name="subject" type="text">
+							<label for="subject">Disciplina (obrigatório)</label>
+							<div class="required_error" id="subject_error"></div>
 						</div>
 						<div class="input-field col s12 l6">
-							<input id="disciplina" type="text" class="validate">
-							<label for="disciplina">Disciplina</label>
+							<input id="topic" name="topic" type="text" >
+							<label for="topic">Conteúdo (obrigatório)</label>
+							<div class="required_error" id="topic_error"></div>
 						</div>
 						<div class="input-field col s12 l6">
-							<input id="conteudo" type="text" class="validate">
-							<label for="conteudo">Conteúdo</label>
-						</div>
-						<div class="input-field col s12 l6">
-							<input id="professor" type="text" class="validate">
-							<label for="professor">Professor</label>
+							<input id="professor" name="professor" type="text">
+							<label for="professor">Professor (obrigatório)</label>
+							<div class="required_error" id="professor_error"></div>
 						</div>
 						<div class="input-field col s6 l3">
-							<input id="ano" type="number" class="validate">
-							<label for="ano">Ano</label>
+							<input id="year" name="year" type="text">
+							<label for="year">Ano (obrigatório)</label>
+							<div class="required_error" id="year_error"></div>
 						</div>
 						<div class="input-field col s6 l3">
-							<input id="semestre" type="number" class="validate">
-							<label for="semestre">Semestre</label>
+							<input id="semester" name="semester" type="text">
+							<label for="semester">(Bi/Se)mestre (obrigatório)</label>
+							<div class="required_error" id="semester_error"></div>
+						</div>
+						<div class="input-field col s12">
+							<input id="title" name="title" type="text">
+							<label for="title">Título do material (obrigatório)</label>
+							<div class="required_error" id="title_error"></div>
 						</div>
 					</div>
 					<div class="row">
 						<div class="container col s12">
-							<textarea id="pergunta"></textarea>
+							<textarea id="material" name="material"></textarea>
 						</div>
+					</div>
+					<div class="row">
+						<div class="required_error_froala" id="material_error"></div>
 					</div>
 				</form>
 				<div class="container col s8 offset-s2 l3 offset-l9" style="padding-top:1em;">
-				<button class="btn-large waves-effect waves-light amber" type="submit" name="action">Enviar material
+				<button role="button" class="btn-large waves-effect waves-light amber" type="submit" form="form_newContent" id="submitContent" href="#!">Enviar material
 					<i class="material-icons right">send</i>
 				</button>
 				</div>
-      </div>
+      </div>			
     </div>
   </main>
 </template>

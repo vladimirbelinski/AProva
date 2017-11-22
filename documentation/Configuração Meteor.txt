@@ -13,6 +13,7 @@
 > meteor add session
 > meteor add iron:router
 > meteor add froala:editor-reactive
+> meteor add kevohagan:sweetalert
 
 * Lembrar de utilizar o comando 'meteor remove insecure' quando iniciar a trabalhar com as coleções
 

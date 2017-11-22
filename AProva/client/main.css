@@ -142,6 +142,20 @@ picture.parallax {
 		min-height: 300px;
 }
 
+/* Customização das verificações e erros dos formulários*/
+.required_error {
+	color: #F44336;
+	font-size: 0.8rem;
+	margin-top: -18px;
+}
+
+.required_error_froala {
+	color: #F44336;
+	font-size: 0.8rem;
+	margin-top: -18px;
+	margin-left: 16px;
+}
+
 /* Classe para esconder o rodapé (usada nas páginas onde é feito uso do handlebars - estratégia para não aparecer o rodapé até que a div de conteúdo tenha sido preenchida) */
 .hiddenfooter{
 	display: none !important;
