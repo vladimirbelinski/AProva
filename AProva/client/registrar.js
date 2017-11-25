@@ -135,6 +135,9 @@ Template.registrar.events({
 			$('#title_error').text("");
 		}
 	},
+	'click .fr-element.fr-view': function (events) {
+			$('#material_error').text("");
+	},
 	'submit #form_newContent': function (events) {
 		function checkInst() {
 			var state = true;
@@ -233,7 +236,7 @@ Template.registrar.events({
 		}
 		
 		function checkSemester() {
-			var pattSemester = new RegExp("^[1-4]{1}$");
+		var pattSemester = new RegExp("^[1-4]{1}$");
 		var state = true;
 
 		if (($('#semester').val() != "") && !(pattSemester.test($('#semester').val()))) {
@@ -326,6 +329,10 @@ Template.registrar.events({
 				function(){
 				  // Limpando os campos após o envio
 				  $("#inst, #course, #subject, #topic, #professor, #year, #semester, #title").val("");
+					// Limpando o editor do Froala e dando refresh no placeholder
+					$('.fr-element.fr-view').html("");
+					// $('textarea#material').data('froala.editor').opts.placeholderText = 'Insira aqui o material que deseja registrar';
+					$('textarea#material').froalaEditor('placeholder.refresh');
 				  // Removendo a classe valid
 				  $("#inst, #course, #subject, #topic, #professor, #year, #semester, #title").removeClass("valid");
 			});
@@ -335,3 +342,4 @@ Template.registrar.events({
 		}
 	},
 });
+

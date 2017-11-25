@@ -109,6 +109,9 @@ Template.content.events({
 		}
 		return state;
 		}
+		
+		var year= checkYear();
+		var semester= checkSemester();
 
 		// É verdadeiro somente se nenhuma verificação foi falha
 		if (year && semester) {

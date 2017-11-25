@@ -14,56 +14,63 @@
 				</div>
 			</div>
 			
-			<!-- Esta parte está estática, por enquanto serve apenas para visualização de layout -->
-			
 			<div class="row">
 				<div class="container col s12">
 					{{#if currentUser}}
-					<h5>Você está visualizando o material: Prova de Física I</h5>
+					<h5>Você está visualizando o material: {{#each content}}{{title}}{{/each}}</h5>
 					{{else}}
-					<h5 style='margin-top:2em'>Você está visualizando o material: Prova de Física I</h5>
+					<h5 style='margin-top:2em'>Você está visualizando o material: {{#each content}}{{title}}{{/each}}</h5>
 					{{/if}}
 					<a href="/content">Voltar para página de buscas</a>
 				</div>
 			</div>
 			
+			{{#each content}}
 			<div class="row">
 				<div class="container col s12">
-					<div class="card">
-						<div class="card-image view_card">
-							<img class="materialboxed view_image"  data-caption="Prova de Física I" src="images/content/prova.jpg" alt="Prova de Física I">
-						</div>
-						<div class="card-content">
-						<h5>Prova de Física I</h5>
-							<p><strong>Autor: </strong>Jorginho</p>
-							<div class="chip">USP</div>
-							<div class="chip">Eng. Produção</div>
-							<div class="chip">Física I</div>
-							<div class="chip">Área</div>
-							<div class="chip">Prof. Luiz</div>
-							<div class="chip">2016</div>
-							<div class="chip">2º semestre</div>
-						</div>
-					</div>
+					<div class="card white">
+            <div class="card-content amber-text">
+              <span class="card-title" id="{{_id}}">
+							<!-- TODO: descobrir como apresentar o conteúdo (texto, imagens, vídeo...) -->
+							<script> $("#{{_id}}").append("{{material}}"); </script>
+							<!--{{material}}-->
+							</span>
+            </div>
+            <div class="card-action">
+							<h5>{{title}}</h5>
+             	<p class="small"><strong>Autor: </strong>{{getName createdBy}}</p>
+							<div class="chip">{{inst}}</div>
+							<div class="chip">{{course}}</div>
+							<div class="chip">{{subject}}</div>
+							<div class="chip">{{topic}}</div>
+							<div class="chip">{{professor}}</div>
+							<div class="chip">{{year}}.{{semester}}</div>
+            </div>
+          </div>
 				</div>
 			</div>
+			{{/each}}
 			
 			{{#if currentUser}}
 			<div class="row" id="addAnswer">
 			  <div class="container col s12">
 					<script>
-						$('textarea#resposta').froalaEditor({placeholderText: 'Insira aqui sua resposta ou comentário'})
-						$('textarea#resposta').froalaEditor();
-				  </script>
+						$('textarea#answer').froalaEditor({placeholderText: 'Insira aqui sua resposta ou comentário'})
+						$('textarea#answer').froalaEditor();
+					</script>
 			    <h5>Adicionar resposta ou comentário:</h5>
 					<form role="form" id="form_newAnswer" name="form_newAnswer" class="col s12">
-						<textarea id="resposta"></textarea>
 						<div class="row">
-							<div class="required_error_froala" id="material_error"></div>
+							<div class="container col s12">
+								<textarea id="answer"></textarea>
+							</div>
+						</div>
+						<div class="row">
+							<div class="required_error_froala" id="answer_error"></div>
 						</div>
 					</form>
 			  </div>
-			  <div class="container col s12 right" style="padding-top:2em;">
+			  <div class="container col s12 right">
 					<button role="button" class="btn-large waves-effect waves-light amber" type="submit" form="form_newAnswer" id="submitAnswer" href="#!">Enviar
 			      <i class="material-icons right">send</i>
 			    </button>
@@ -72,17 +79,27 @@
 			{{/if}}
 			
 			<div class="row">
+			<div class="container col s12">
+			 <h5>Comentários ou respostas para este material:</h5>
+			</div>
+		 </div>
+			
+			<div class="row">
+				{{#each answers}}
 				<div class="container col s12">
-					<h5>Comentários ou respostas para este material:</h5>
 					<div class="card">
 						<div class="card-content">
-						  <p> Na letra (a) a área ocupada por cada letra é igual a: 0.2 * 0.2 = 0.04 cm^2.</p>
+							<!-- TODO: descobrir como apresentar o conteúdo (texto, imagens, vídeo...)-->
+							<script> $(".card-content").append("{{answer}}"); </script>
+							{{answer}}
 						</div>
 						<div class="card-action">
-							<p><strong>Autor: </strong>Claudinho. <strong>Adicionado em: </strong>15/10/2017 às 14h00min.</p>
+							<p class="small"><strong>Autor: </strong>{{getName createdBy}}</p>
+							<p class="small"><strong>Adicionado em: </strong>{{created}}</p>
 						</div>
 					 </div>
 				</div>
+			 {{/each}}
 			</div>
 		</div>
     </main>

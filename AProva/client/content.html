@@ -64,10 +64,10 @@
 					<div class="required_error" id="semester_error"></div>
 				</div>
 			 </form>
-			 <div class="col s12">
-				<button class="btn-large waves-effect waves-light amber right" type="submit" form="form_searchContent">Buscar<i class="material-icons right">search</i>
-				</button>
-			 	</div>
+				<div class="container col s8 offset-s1 m5 offset-m2 l3 offset-l9" style="padding-top:1em;">
+					<button class="btn-large waves-effect waves-light amber right" type="submit" form="form_searchContent">Buscar<i class="material-icons right">search</i>
+					</button>
+				</div>
 			</div>
 		 </div>
 													
@@ -76,7 +76,8 @@
 			 <h5>Resultados da busca para as tags:</h5>
 			</div>
 		 </div>
-													
+			
+			<!-- TODO: fazer a busca -->
 		 <div class="row">
 			<div class="container col s12">
 			 <div class="chip">USP</div>
@@ -97,15 +98,15 @@
               <span class="card-title">{{title}}</span>
             </div>
             <div class="card-action">
-             	<p><strong>Autor: </strong>{{getName createdBy}}</p>
-							<!--<p><strong>Adicionado em: </strong>{{created}}</p>-->
-							<p><strong>Instituição: </strong>{{inst}}</p>
-							<p><strong>Curso: </strong>{{course}}</p>
-							<p><strong>Disciplina: </strong>{{subject}}</p>
-							<p><strong>Conteúdo(s): </strong>{{topic}}</p>
-							<p><strong>Professor: </strong>{{professor}}</p>
-							<p><strong>Ano.(bi/se)mestre: </strong>{{year}}.{{semester}}</p>							
-              <a href="/view" onclick="$(window).scrollTop(0);">Visualizar material</a>
+             	<p class="small"><strong>Autor: </strong>{{getName createdBy}}</p>
+							<!--<p class="small"><strong>Adicionado em: </strong>{{created}}</p>-->
+							<p class="small"><strong>Instituição: </strong>{{inst}}</p>
+							<p class="small"><strong>Curso: </strong>{{course}}</p>
+							<p class="small"><strong>Disciplina: </strong>{{subject}}</p>
+							<p class="small"><strong>Conteúdo(s): </strong>{{topic}}</p>
+							<p class="small"><strong>Professor: </strong>{{professor}}</p>
+							<p class="small"><strong>Ano.(bi/se)mestre: </strong>{{year}}.{{semester}}</p>							
+              <a href="/view/{{_id}}" onclick="$(window).scrollTop(0);">Visualizar material</a>
             </div>
           </div>
 				</div>

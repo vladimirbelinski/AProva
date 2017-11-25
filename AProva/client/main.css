@@ -41,8 +41,12 @@ a {
 
 /* Customização dos parágrafos (tag <p> e <p> com classe notes) */
 p {
-    line-height: 2rem;
+  line-height: 2rem;
 	text-align: justify;
+}
+
+p.small {
+    line-height: 90%;
 }
 
 p.notes {
