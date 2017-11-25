@@ -17,15 +17,15 @@
 			<div class="row">
 				<div class="container col s12">
 					{{#if currentUser}}
-					<h5>Você está visualizando o material: {{#each content}}{{title}}{{/each}}</h5>
+					<h5>Você está visualizando o material: {{#each data}}{{title}}{{/each}}</h5>
 					{{else}}
-					<h5 style='margin-top:2em'>Você está visualizando o material: {{#each content}}{{title}}{{/each}}</h5>
+					<h5 style='margin-top:2em'>Você está visualizando o material: {{#each data}}{{title}}{{/each}}</h5>
 					{{/if}}
 					<a href="/content">Voltar para página de buscas</a>
 				</div>
 			</div>
 			
-			{{#each content}}
+			{{#each data}}
 			<div class="row">
 				<div class="container col s12">
 					<div class="card white">

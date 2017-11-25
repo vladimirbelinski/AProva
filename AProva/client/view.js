@@ -13,7 +13,7 @@ import './view.html';
 
 // Definição das rotas para /view
 
-Router.route('/view/:_id', function () {
+Router.route('/view', function () {
 	this.layout('common_layout');
 	this.render('header', {
 		to: "header"
@@ -25,15 +25,6 @@ Router.route('/view/:_id', function () {
 		to: "footer"
 	});
 });
-
-//Router.route('/posts/:_id', {name: 'post'});
-
-//PostController = RouteController.extend({
-//  action: function () {
-//    this.state.set('postId', this.params._id);
-//    this.render();
-//  }
-//});
 
 Template.view.helpers({
 	usuario: function () {
@@ -57,16 +48,9 @@ Template.view.helpers({
 		return user.username;
 	},
 	// TODO: aqui precisamos retornar o conteúdo com o ID da URL
-	 content: Content.find({_id:{$eq:'nXEfiS4Kk9t2Kesji'}}, {}),
+	 data: Content.find({_id:{$eq:'nXEfiS4Kk9t2Kesji'}}, {}),
 });
 
-//Template.Post.helpers({
-//  postId: function () {
-//    var controller = Iron.controller();
-//    // reactively return the value of postId
-//    return controller.state.get('postId');
-//  }
-//});
 
 Template.view.events({
 	'load .materialboxed': function (event) {
