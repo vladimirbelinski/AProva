@@ -11,14 +11,22 @@ import {
 import './main.html';
 
 // Redirecionamento para \index se usuário não está logado
-Router.onBeforeAction(function () {    
-    if  (!Meteor.userId() && !Meteor.loggingIn()) {
-        this.redirect('\index');
-        this.stop();
-    } else {
-        this.next();
+var OnBeforeActions;
+
+OnBeforeActions = {
+    loginRequired: function(pause) {
+			if  (!Meteor.userId() && !Meteor.loggingIn()) {
+					this.redirect('\index');
+					this.stop();
+			} else {
+					this.next();
+			}
     }
-},{except: ['index','content', 'view'] });
+};
+
+Router.onBeforeAction(OnBeforeActions.loginRequired, {
+    only: ['registrar']
+});
 
 // Inicializações dos componentes js
 Template.header.onRendered(function () {
