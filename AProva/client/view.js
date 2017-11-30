@@ -18,7 +18,7 @@ Router.route('/view/:_id', function () {
 	this.render('header', {
 		to: "header"
 	});
-    this.render('view', {to: "main", data: function(){
+  this.render('view', {to: "main", data: function(){
         return Content.findOne({_id:this.params._id})}});
 	this.render('footer', {
 		to: "footer"
@@ -35,16 +35,13 @@ Template.view.helpers({
 			}
 		}
 	},
-    //assistir.find({"email":Meteor.user().emails[0].address});
-    answers: Answers.find({}, {
-        sort: {
+	answers: Answers.find({}, {
+		sort: {
 			created: -1
 		}
-    }),
+	}),
 	verify_answers: function(idcom) {
         c = Answers.findOne({_id:idcom});
-        console.log(idcom);
-        console.log(c);
         if (c != null && c.idmaterial == Router.current().params._id) return true;
         return false;
     },
@@ -54,21 +51,54 @@ Template.view.helpers({
 		});
 		return user.username;
 	},
-	// TODO: aqui precisamos retornar o conteúdo com o ID da URL
-	 //data: Content.find({_id:{$eq:'nXEfiS4Kk9t2Kesji'}}, {}),
+	verify_user: function (user_id) {
+		var user = Meteor.users.findOne({
+			_id: user_id
+		});
+		var userM = Meteor.user();
+		if (user && userM) {
+			if (userM.username != "undefined" && user.username != "undefined") {
+				if (userM.username == user.username) return true;
+			}
+			else if (userM.profile.name != "undefined" && user.prfile.name != "undefined") {
+				if (userM.profile.name == user.profile.name) return true;
+			}
+		}
+		return false;
+	},
 });
 
 
 Template.view.events({
+	'click #remove_material': function (events) {
+		var idMaterial = Router.current().params._id;
+			// Removendo do banco os comentários/respostas daquele material
+			Answers.find({idmaterial: idMaterial}).forEach(function (doc) {
+				Answers.remove({_id: doc._id});
+			});
+			Content.remove({
+				"_id": idMaterial
+			});
+		$(window).scrollTop(0);
+		Router.go('\content');
+	},
+
+	'click #remove_answer': function (events) {
+		var idAnswer = this._id;
+			Answers.remove({
+				"_id": idAnswer
+			});
+	},
+
 	'load .materialboxed': function (event) {
 		$('.materialboxed').materialbox();
 	},
-	
+
 	'click .fr-element.fr-view': function (events) {
 			$('#answer_error').text("");
 	},
-	
-	'submit #form_newAnswer': function (events) {		
+
+	'submit #form_newAnswer': function (events) {
 		function checkAnswer() {
 			var state = true;
 			if ($('#answer').val() == "") {
@@ -80,15 +110,14 @@ Template.view.events({
 			}
 			return state;
 		}
-		
+
 		var answer= checkAnswer();
 
 		// É verdadeiro somente se nenhuma verificação foi falha
 		if (answer) {
 			var answer_value = $("#answer").val();
 			Answers.insert({
-				// Add id do material
-                idmaterial: Router.current().params._id,
+        idmaterial: Router.current().params._id,
 				answer: answer_value,
 				created: new Date(),
 				createdBy: Meteor.user()._id
