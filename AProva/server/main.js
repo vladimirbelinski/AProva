@@ -16,6 +16,12 @@ ServiceConfiguration.configurations.insert({
     secret: '3b5cf3adc9c0c9ef3b0a37f607eeecb8'
 });
 
+//ServiceConfiguration.configurations.insert({
+//    service: "facebook",
+//    appId: '1936887573232222',
+//    secret: '554eebd2a04bd63e9f764a5f1fa0d910'
+//});
+
 Accounts.onCreateUser(function (options, user) {
 
     if (!user.services.facebook) {

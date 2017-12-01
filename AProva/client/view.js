@@ -42,7 +42,11 @@ Template.view.helpers({
 	}),
 	verify_answers: function(idcom) {
         c = Answers.findOne({_id:idcom});
-        if (c != null && c.idmaterial == Router.current().params._id) return true;
+        if (c != null && c.idmaterial == Router.current().params._id){
+					$('#no_comments').html('');
+					return true;
+				}
+				$('#no_comments').html('<p style="margin-left:10pt">Ainda não há comentários ou respostas para este material :(</p>');
         return false;
     },
 	getName: function (user_id) {

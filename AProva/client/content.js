@@ -46,11 +46,37 @@ Template.content.helpers({
 			_id: user_id
 		});
 		return user.username;
-	},	
+	},
+	verify_user: function (user_id) {
+		var user = Meteor.users.findOne({
+			_id: user_id
+		});
+		var userM = Meteor.user();
+		if (user && userM) {
+			if (userM.username != "undefined" && user.username != "undefined") {
+				if (userM.username == user.username) return true;
+			}
+			else if (userM.profile.name != "undefined" && user.prfile.name != "undefined") {
+				if (userM.profile.name == user.profile.name) return true;
+			}
+		}
+		return false;
+	},
 });
 
 // Eventos do template content
 Template.content.events({
+	'click #remove_material': function (events) {
+		var idMaterial = this._id;
+			// Removendo do banco os comentários/respostas daquele material
+			Answers.find({idmaterial: idMaterial}).forEach(function (doc) {
+				Answers.remove({_id: doc._id});
+			});
+			Content.remove({
+				"_id": idMaterial
+			});
+	},
+	
 	'change #year': function (events) {
 		var pattYear = new RegExp("^[1-2]{1}[0-9]{3}$");
 

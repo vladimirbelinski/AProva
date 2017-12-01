@@ -60,7 +60,7 @@
 						$('textarea#answer').froalaEditor();
 					</script>
 			    <h5>Adicionar resposta ou comentário:</h5>
-					<form role="form" id="form_newAnswer" name="form_newAnswer" class="col s12">
+					<form role="form" id="form_newAnswer" name="form_newAnswer" class="col s12" style="margin-top:10pt">
 						<div class="row">
 							<div class="container col s12">
 								<textarea id="answer"></textarea>
@@ -85,13 +85,20 @@
 			</div>
 		 </div>
 
+			<!-- <div class="row">
+					<div class="container col s12">
+					 	<div id="no_comments">
+							<p style="margin-left:10pt">Ainda não há comentários ou respostas para este material :(</p>
+						</div>
+					</div>
+			 	</div> -->
+
 			<div class="row">
 				{{#each answers}}
-        {{#if verify_answers _id}}
+				{{#if verify_answers _id}}
 				<div class="container col s12">
 					<div class="card">
 						<div class="card-content">
-							<!-- TODO: descobrir como apresentar o conteúdo (texto, imagens, vídeo...)-->
 							{{{answer}}}
 						</div>
 						<div class="card-action">
@@ -103,14 +110,8 @@
 						</div>
 					 </div>
 				</div>
-        {{/if}}
-				{{else}}
-				<div class="row">
-				<div class="container col s12">
-				 <p style="margin-left:10pt">Ainda não há comentários ou respostas para este material :(</p>
-				</div>
-			 </div>
-			 {{/each}}
+				{{/if}}
+			 	{{/each}}
 			</div>
 		</div>
     </main>

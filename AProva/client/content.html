@@ -98,16 +98,19 @@
               <span class="card-title">{{title}}</span>
             </div>
             <div class="card-action">
+							<p class="small"><a href="/view/{{_id}}" onclick="$(window).scrollTop(0);">Visualizar material</a></p>
              	<p class="small"><strong>Autor: </strong>{{getName createdBy}}</p>
-							<!--<p class="small"><strong>Adicionado em: </strong>{{created}}</p>-->
 							<p class="small"><strong>Instituição: </strong>{{inst}}</p>
 							<p class="small"><strong>Curso: </strong>{{course}}</p>
 							<p class="small"><strong>Disciplina: </strong>{{subject}}</p>
 							<p class="small"><strong>Conteúdo(s): </strong>{{topic}}</p>
 							<p class="small"><strong>Professor: </strong>{{professor}}</p>
-							<p class="small"><strong>Ano.(bi/se)mestre: </strong>{{year}}.{{semester}}</p>							
-							<!--<a href="/view/{{_id}}" onclick="$(window).scrollTop(0);">Visualizar material</a>-->
-							<a href="/view/{{_id}}" onclick="$(window).scrollTop(0);">Visualizar material</a>
+							<p class="small"><strong>Ano.(bi/se)mestre: </strong>{{year}}.{{semester}}</p>
+							<div style="min-height:20pt">
+								{{#if verify_user createdBy}}
+								<a href="#!" id="remove_material" style="margin-top:10pt">Remover material</a>
+							{{/if}}
+							</div>
             </div>
           </div>
 				</div>
