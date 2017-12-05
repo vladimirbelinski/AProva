@@ -1,0 +1,26 @@
+** MÉTRICAS **
+
+- 1:
+- Nome da métrica: taxa de conversão via landing page
+- Objetivo da medição: identificar o grau de interesse das pessoas em relação à
+  oferta da landing page e, com isso, de conteúdo futuro semelhante (produto principal
+  da empresa)
+- Descrição do cálculo da métrica: razão entre o número de visitantes que deixaram
+  seu contato a partir do acesso da landing page da empresa (conversões) e o número
+  total de visitantes que acessaram a landing page, multiplicado por 100
+- Equação: (nº de conversões / nº total de visitantes) * 100
+- Intervalo de medição ou valor alvo: 0% a 100%
+- Comportamento esperado da métrica: maior-é-melhor
+- Unidade de medida: porcentagem
+- Fonte dos dados: landing page (Instapage)
+
+- 2:
+- Nome da métrica: número de acessos da landing page por mês
+- Objetivo da medição: verificar se a divulgação promovida pela empresa para a landing
+  page está sendo eficiente e se as pessoas que a acessaram a estão divulgando para
+  terceiros
+- Descrição do cálculo da métrica: disposição (em um gráfico de linhas) do número total
+  de acessos da landing page para cada mês em que esta esteve disponível ao público
+- Comportamento esperado da métrica: gráfico crescente
+- Unidade de medida: número de acessos
+- Fonte dos dados: landing page (Instapage)
