@@ -65,10 +65,15 @@
           </div>
         </div>
       </div>
+			<div class="row">
+        <div class="container col s12">
+          <h5>Listagem de materiais:</h5>
+        </div>
+      </div>
       {{#if exisistTags}}
       <div class="row">
         <div class="container col s12">
-          <h5>Resultados da busca para as tags:</h5>
+					<b><p>Resultados da busca (materiais) para as tags:</p></b>
         </div>
       </div>
       {{/if}}
@@ -106,7 +111,7 @@
         {{/each}}
       	{{#if empty}}
 				<div class="container col s12">
-					<p> Não há resultados para estas tags :( </p>
+					<p> Não há materiais :( </p>
 				</div>
       	{{/if}}
 			</div>

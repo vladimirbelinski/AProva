@@ -137,11 +137,8 @@ Template.view.events({
 			}
 			return state;
 		}
-
-		var answer = checkAnswer();
-
 		// É verdadeiro somente se nenhuma verificação foi falha
-		if (answer) {
+		if (checkAnswer()) {
 			var answer_value = $("#answer").val();
 			Answers.insert({
 				idmaterial: Router.current().params._id,
