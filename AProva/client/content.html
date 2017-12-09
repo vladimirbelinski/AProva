@@ -65,20 +65,18 @@
           </div>
         </div>
       </div>
+      {{#if exisistTags}}
       <div class="row">
         <div class="container col s12">
           <h5>Resultados da busca para as tags:</h5>
         </div>
       </div>
+      {{/if}}
       <div class="row">
         <div class="container col s12">
-          <div class="chip">USP</div>
-          <div class="chip">Eng. Produção</div>
-          <div class="chip">Física I</div>
-          <div class="chip">Área</div>
-          <div class="chip">Prof. Luiz</div>
-          <div class="chip">2016</div>
-          <div class="chip">2º semestre</div>
+          {{#each tags}}
+          <div class="chip">{{this}}</div>
+          {{/each}}
         </div>
       </div>
       <div class="row">

@@ -40,7 +40,9 @@ Template.content.helpers({
 			}
 		}
 	},
-	content: Content.find({}, {
+    exisistTags: function() { return Session.get('selectedTags').length != 0; },
+    tags: function() { return Session.get('selectedTags'); },
+    content: Content.find({}, {
 		sort: {
 			created: -1
 		}
@@ -171,6 +173,7 @@ Template.content.events({
 
 		// É verdadeiro somente se nenhuma verificação foi falha
 		if (checkYear() && checkSemester()) {
+            var tags = [];
 			// Scrollando a tela para a posição onde são apresentados os resultados da busca
 			$(window).scrollTop(500);
 			// Limpando os campos após o envio
@@ -178,19 +181,19 @@ Template.content.events({
 			// Removendo a classe valid
 			$("#inst, #course, #subject, #topic, #professor, #year, #semester").removeClass("valid");
 			if (inst == "") inst = new RegExp(".*");
-			else inst = new RegExp(".*" + inst + ".*");
+			else { tags.push(inst); inst = new RegExp(".*" + inst + ".*"); }
 			if (course == "") course = new RegExp(".*");
-			else course = new RegExp(".*" + course + ".*");
+			else { tags.push(course); course = new RegExp(".*" + course + ".*"); }
 			if (subject == "") subject = new RegExp(".*");
-			else subject = new RegExp(".*" + subject + ".*");
+			else { tags.push(subject); subject = new RegExp(".*" + subject + ".*"); }
 			if (topic == "") topic = new RegExp(".*");
-			else topic = new RegExp(".*" + topic + ".*");
+			else { tags.push(topic); topic = new RegExp(".*" + topic + ".*"); }
 			if (professor == "") professor = new RegExp(".*");
-			else professor = new RegExp(".*" + professor + ".*");
+			else { tags.push(professor); professor = new RegExp(".*" + professor + ".*"); }
 			if (year == "") year = new RegExp(".*");
-			else year = new RegExp(".*" + year + ".*");
+			else { tags.push(year); year = new RegExp(".*" + year + ".*"); }
 			if (semester == "") semester = new RegExp(".*");
-			else semester = new RegExp(".*" + semester + ".*");
+			else { tags.push(semester); semester = new RegExp(".*" + semester + ".*"); }
 			Content.find({
 				inst: {
 					$regex: inst
@@ -217,6 +220,7 @@ Template.content.events({
 				filter.push(myDoc._id);
 			});
 			Session.set('selectedContentId', filter);
+            Session.set('selectedTags', tags);
 			return false;
 		} else {
 			return false;
