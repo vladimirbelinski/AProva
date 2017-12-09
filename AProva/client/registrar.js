@@ -305,7 +305,7 @@ Template.registrar.events({
 			var semester_value = $("#semester").val();
 			var title_value = $("#title").val();
 			var material_value = $("#material").val();
-			Content.insert({
+			test = Content.insert({
 				inst: inst_value,
 				course: course_value,
 				subject: subject_value,
@@ -336,7 +336,9 @@ Template.registrar.events({
 				  // Removendo a classe valid
 				  $("#inst, #course, #subject, #topic, #professor, #year, #semester, #title").removeClass("valid");
 			});
-			return false;
+			$(window).scrollTop(0);
+			Router.go('/view/'+test);
+			return false;	
 		}  else {
 			return false;
 		}

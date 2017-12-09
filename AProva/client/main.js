@@ -46,6 +46,7 @@ Template.header.events({
 		Meteor.setTimeout(function () {
 			$("#busca").click();
 		},800);
+		$(window).scrollTop(0);
 	},
 	'click .login-facebook': function (e) {
 		e.preventDefault();
