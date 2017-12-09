@@ -88,6 +88,11 @@ Template.view.helpers({
 
 
 Template.view.events({
+	'click #voltar': function (events) {
+		Meteor.setTimeout(function () {
+			$("#materialLinks").click();
+		}, 800);
+	},
 	'click #remove_material': function (events) {
 		var idMaterial = Router.current().params._id;
 		// Removendo do banco os comentários/respostas daquele material

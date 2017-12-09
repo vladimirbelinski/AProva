@@ -28,7 +28,7 @@ Router.route('/content', function () {
 
 Template.content.onRendered(setTimeout(function () {
 	$("#busca").click();
-}, 800));
+}, 2000));
 
 Template.content.helpers({
 	usuario: function () {
