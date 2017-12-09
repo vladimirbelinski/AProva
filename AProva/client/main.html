@@ -34,7 +34,7 @@
 	      <li><a accesskey="1" href="#main" id="linkContent" class="sr-only">Ir para o conteúdo<span>1</span></a></li>
 	      <li><a accesskey="2" href="#footer" id="linkFooter" class="sr-only">Ir para o rodapé<span>2</span></a></li>
 	      <li><a href="/index"><span lang="en">Home</span></a></li>
-	      <li><a href="/content">Materiais</a></li>
+	      <li><a href="/content" id="materialLinks">Materiais</a></li>
 	      {{#if currentUser }}
           <li><a href="" class=""
                  data-action="logout">Sair</a></li>
@@ -60,7 +60,7 @@
 	      <li><a accesskey="1" href="#main" id="linkContent" class="sr-only">Ir para o conteúdo<span>1</span></a></li>
 	      <li><a accesskey="2" href="#footer" id="linkFooter" class="sr-only">Ir para o rodapé<span>2</span></a></li>
 	      <li><a href="/index" onclick="$('.button-collapse').sideNav('hide');"><span lang="en">Home</span></a></li>
-	      <li><a href="/content" onclick="$('.button-collapse').sideNav('hide');">Materiais</a></li>
+	      <li><a href="/content" onclick="$('.button-collapse').sideNav('hide');" id="materialLinks">Materiais</a></li>
 	      {{#if currentUser }}
           <li><a href="" class="waves-effect" data-action="logout">Sair</a></li>
           {{else}}

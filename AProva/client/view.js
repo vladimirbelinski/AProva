@@ -18,8 +18,14 @@ Router.route('/view/:_id', function () {
 	this.render('header', {
 		to: "header"
 	});
-  this.render('view', {to: "main", data: function(){
-        return Content.findOne({_id:this.params._id})}});
+	this.render('view', {
+		to: "main",
+		data: function () {
+			return Content.findOne({
+				_id: this.params._id
+			})
+		}
+	});
 	this.render('footer', {
 		to: "footer"
 	});
@@ -40,15 +46,24 @@ Template.view.helpers({
 			created: -1
 		}
 	}),
-	verify_answers: function(idcom) {
-        c = Answers.findOne({_id:idcom});
-        if (c != null && c.idmaterial == Router.current().params._id){
-					// $('#no_comments').html('');
-					return true;
-				}
-				// $('#no_comments').html('<p style="margin-left:10pt">Ainda não há comentários ou respostas para este material :(</p>');
-        return false;
-    },
+	verify_answers: function (idcom) {
+		c = Answers.findOne({
+			_id: idcom
+		});
+		if (c != null && c.idmaterial == Router.current().params._id) {
+			return true;
+		}
+		return false;
+	},
+	verify_noAnswers: function () {
+		c =  Answers.find({
+			idmaterial: {
+				$eq: Router.current().params._id
+			}
+		}).count();
+		if (c) return false;
+		return true;
+	},
 	getName: function (user_id) {
 		var user = Meteor.users.findOne({
 			_id: user_id
@@ -63,8 +78,7 @@ Template.view.helpers({
 		if (user && userM) {
 			if (userM.username != "undefined" && user.username != "undefined") {
 				if (userM.username == user.username) return true;
-			}
-			else if (userM.profile.name != "undefined" && user.prfile.name != "undefined") {
+			} else if (userM.profile.name != "undefined" && user.prfile.name != "undefined") {
 				if (userM.profile.name == user.profile.name) return true;
 			}
 		}
@@ -76,22 +90,26 @@ Template.view.helpers({
 Template.view.events({
 	'click #remove_material': function (events) {
 		var idMaterial = Router.current().params._id;
-			// Removendo do banco os comentários/respostas daquele material
-			Answers.find({idmaterial: idMaterial}).forEach(function (doc) {
-				Answers.remove({_id: doc._id});
+		// Removendo do banco os comentários/respostas daquele material
+		Answers.find({
+			idmaterial: idMaterial
+		}).forEach(function (doc) {
+			Answers.remove({
+				_id: doc._id
 			});
-			Content.remove({
-				"_id": idMaterial
-			});
+		});
+		Content.remove({
+			"_id": idMaterial
+		});
 		$(window).scrollTop(0);
 		Router.go('\content');
 	},
 
 	'click #remove_answer': function (events) {
 		var idAnswer = this._id;
-			Answers.remove({
-				"_id": idAnswer
-			});
+		Answers.remove({
+			"_id": idAnswer
+		});
 	},
 
 	'load .materialboxed': function (event) {
@@ -99,7 +117,7 @@ Template.view.events({
 	},
 
 	'click .fr-element.fr-view': function (events) {
-			$('#answer_error').text("");
+		$('#answer_error').text("");
 	},
 
 	'submit #form_newAnswer': function (events) {
@@ -115,32 +133,32 @@ Template.view.events({
 			return state;
 		}
 
-		var answer= checkAnswer();
+		var answer = checkAnswer();
 
 		// É verdadeiro somente se nenhuma verificação foi falha
 		if (answer) {
 			var answer_value = $("#answer").val();
 			Answers.insert({
-        idmaterial: Router.current().params._id,
+				idmaterial: Router.current().params._id,
 				answer: answer_value,
 				created: new Date(),
 				createdBy: Meteor.user()._id
 			});
 			// Confirmação de envio
 			swal({
-				  title: "Resposta/comentário enviado com sucesso!",
-				  type: "success",
-				  confirmButtonColor: "#ffb300",
-				  confirmButtonText: "Fechar",
-				  closeOnConfirm: true
+					title: "Resposta/comentário enviado com sucesso!",
+					type: "success",
+					confirmButtonColor: "#ffb300",
+					confirmButtonText: "Fechar",
+					closeOnConfirm: true
 				},
-				function(){
+				function () {
 					// Limpando o editor do Froala e dando refresh no placeholder
 					$('.fr-element.fr-view').html("");
 					$('textarea#answer').froalaEditor('placeholder.refresh');
-			});
+				});
 			return false;
-		}  else {
+		} else {
 			return false;
 		}
 	},

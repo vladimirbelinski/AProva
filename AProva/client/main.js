@@ -14,18 +14,18 @@ import './main.html';
 var OnBeforeActions;
 
 OnBeforeActions = {
-    loginRequired: function(pause) {
-			if  (!Meteor.userId() && !Meteor.loggingIn()) {
-					this.redirect('\index');
-					this.stop();
-			} else {
-					this.next();
-			}
-    }
+	loginRequired: function (pause) {
+		if (!Meteor.userId() && !Meteor.loggingIn()) {
+			this.redirect('\index');
+			this.stop();
+		} else {
+			this.next();
+		}
+	}
 };
 
 Router.onBeforeAction(OnBeforeActions.loginRequired, {
-    only: ['registrar']
+	only: ['registrar']
 });
 
 // Inicializações dos componentes js
@@ -36,26 +36,35 @@ Template.header.onRendered(function () {
 });
 
 Template.header.helpers({
-    isLoginServicesConfigured() {
-        return Accounts.loginServicesConfigured();
-    }
+	isLoginServicesConfigured() {
+		return Accounts.loginServicesConfigured();
+	}
 });
 
 Template.header.events({
-    'click .login-facebook': function(e) {
-        e.preventDefault();
-        Meteor.loginWithFacebook({requestPermissions: ['public_profile', 'email']}, function(err){
-            if (err) {
-                console.log('Handle errors here: ', err);
-            }
-        });
-    },
-    'click [data-action=fb-login]'(e, tmpl){
-        e.preventDefault();
-        Meteor.loginWithFacebook({requestPermissions: ['public_profile', 'email']});
-    },
-    'click [data-action=logout]'(e, tmpl){
-        e.preventDefault();
-        Meteor.logout();
-    }
+	'click #materialLinks': function (events) {
+		Meteor.setTimeout(function () {
+			$("#busca").click();
+		},800);
+	},
+	'click .login-facebook': function (e) {
+		e.preventDefault();
+		Meteor.loginWithFacebook({
+			requestPermissions: ['public_profile', 'email']
+		}, function (err) {
+			if (err) {
+				console.log('Handle errors here: ', err);
+			}
+		});
+	},
+	'click [data-action=fb-login]' (e, tmpl) {
+		e.preventDefault();
+		Meteor.loginWithFacebook({
+			requestPermissions: ['public_profile', 'email']
+		});
+	},
+	'click [data-action=logout]' (e, tmpl) {
+		e.preventDefault();
+		Meteor.logout();
+	},
 });
